@@ -1,22 +1,19 @@
 import { useEffect, useState } from "react";
 import Select, { MultiValue } from "react-select";
-import { useNewsOrg } from "../../services/news-org/use-news-org";
-// import { SourceType, SourceModel } from "../../types/NewsOrg/NewsOrg";
-import { SourceModel } from "../../types/NewsOrg/NewsOrg";
+import { useNewsOrg } from "../../services/org-news/use-news-org";
+import { SourceType } from "../../types/SourceType";
 import { categories } from "../../data/categories";
-// import { CategoryType } from "../../types/CategoryType";
 import { authors } from "../../data/authors";
-// import { AuthorType } from "../../types/AuthorType";
 import { ToastContainer, toast } from "react-toastify";
 import {
   getPreference,
   setPreference,
-} from "../../services/news-org/preferences/preferences";
+} from "../../services/preferences/preferences";
 import { Col } from "reactstrap";
 
 const Preferences = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [sources, setSources] = useState<Awaited<Array<SourceModel>>>([]);
+  const [sources, setSources] = useState<Awaited<Array<SourceType>>>([]);
   const [selectedCategories, setSelectedCategories] = useState<MultiValue<{
     value: string;
     label: string;
@@ -34,7 +31,7 @@ const Preferences = () => {
 
   useEffect(() => {
     (async () => {
-      const sources: SourceModel[] | undefined = await getSources();
+      const sources: SourceType[] | undefined = await getSources();
       if (sources) {
         setSources(sources);
       }

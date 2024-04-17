@@ -231,7 +231,7 @@ input:focus {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #23292f;
+  background-color: #1c2125;
   -webkit-border-radius: 0;
   border-radius: 0;
 }
@@ -377,6 +377,7 @@ input:focus {
   color: #fff;
   text-decoration: none;
   font-weight: 700;
+  font-size: 15px;
 }
 .banner-post-card:hover h5 a {
   color: #fff;
@@ -525,4 +526,9 @@ footer p {
 }
 .css-wsp0cs-MultiValueGeneric {
   color: #fff !important;
+}
+.headline-hold {
+  max-height: 590px;
+  height: 100%;
+  overflow: auto;
 }

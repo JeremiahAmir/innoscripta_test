@@ -1,8 +1,31 @@
+import { useEffect, useState } from "react";
 import FeaturedCard from "../../components/featured/FeaturedCard";
 import LatestPostCard from "../../components/latest/LatestPostCard";
-import newsBanner from "../../assets/images/news.jpg";
+import { useNyNews } from "../../services/ny-news/use-ny-news";
+import { useNewsOrg } from "../../services/org-news/use-news-org";
+import { Headline } from "../../components/headline/Headline";
 
+type NewsType = {
+  title: string;
+  description: string | undefined;
+  image: string | undefined;
+  publishedAt: string;
+  author: string | undefined;
+  url: string | undefined;
+};
 const Feeds = () => {
+  const [news, setNews] = useState<Awaited<Array<NewsType>>>([]);
+  const { getNews } = useNyNews();
+  const { getNewsOrgs } = useNewsOrg();
+
+  useEffect(() => {
+    (async () => {
+      const nyNews = await getNews();
+      const orgNews = await getNewsOrgs();
+      setNews([...nyNews, ...orgNews]);
+    })();
+  }, []);
+
   return (
     <>
       <div className="banner">
@@ -12,39 +35,33 @@ const Feeds = () => {
               <div className="posts-section mb-3">
                 <div className="row">
                   <div className="col-md-12 mb-3">
-                    <FeaturedCard />
+                    <FeaturedCard
+                      title={news[0]?.title}
+                      publishedAt={news[0]?.publishedAt}
+                      image={news[0]?.image}
+                      author={news[0]?.author}
+                      description={news[0]?.description}
+                      url={news[0]?.url}
+                    />
                   </div>
                 </div>
               </div>
             </div>
-            <div className="col-md-4">
-              <div className="banner-post-card mb-2">
-                <div className="row">
-                  <div className="col-md-3">
-                    <img src={newsBanner} className="img-fluid h-100" alt="s" />
-                  </div>
-                  <div className="col-md-9">
-                    <span className="posted-date">13-04-2024</span>
-                    <h5>
-                      <a href="#anchor">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit
-                      </a>
-                    </h5>
-                  </div>
-                </div>
-              </div>
-
-              <div className="banner-post-card shimmer-card mb-2">
-                <div className="row">
-                  <div className="col-md-3">
-                    <div className="shimmerBG media"></div>
-                  </div>
-                  <div className="col-md-9">
-                    <div className="shimmerBG date-line"></div>
-                    <div className="shimmerBG title-line"></div>
-                  </div>
-                </div>
-              </div>
+            <div className="col-md-4 headline-hold">
+              {news && news.length
+                ? news.map((d: NewsType, index: number) => {
+                    if (index > 0 && index < 10) return;
+                    return (
+                      <Headline
+                        key={index}
+                        title={d?.title}
+                        publishedAt={d?.publishedAt}
+                        image={d?.image}
+                        url={d?.url}
+                      />
+                    );
+                  })
+                : ""}
             </div>
           </div>
         </div>
@@ -53,10 +70,21 @@ const Feeds = () => {
         <div className="container">
           <h2>Latest News</h2>
           <div className="row posts-section">
-            <LatestPostCard />
-            <LatestPostCard />
-            <LatestPostCard />
-            <LatestPostCard />
+            {news && news.length
+              ? news.map((d: NewsType, index: number) => {
+                  if (index < 10) return;
+                  return (
+                    <LatestPostCard
+                      key={index}
+                      title={d?.title}
+                      publishedAt={d?.publishedAt}
+                      image={d?.image}
+                      author={d?.author}
+                      description={d?.description}
+                    />
+                  );
+                })
+              : ""}
           </div>
         </div>
       </div>

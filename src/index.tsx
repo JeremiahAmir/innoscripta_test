@@ -1,37 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Feeds from "./pages/feeds/Feeds";
-import News from "./pages/news/News";
+import { RouterProvider } from "react-router-dom";
+import { Router } from './router/router';
+import "./index.css";
 import "react-toastify/dist/ReactToastify.css";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      {
-        path: "/feeds",
-        element: <Feeds />,
-      },
-      {
-        path: "/news",
-        element: <News />,
-      },
-    ],
-  },
-]);
+
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RouterProvider router={Router} />
   </React.StrictMode>
 );
 
