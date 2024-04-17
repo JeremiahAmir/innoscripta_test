@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Feeds from "./pages/feeds/Feeds";
 import News from "./pages/news/News";
+import "react-toastify/dist/ReactToastify.css";
 
 const router = createBrowserRouter([
   {

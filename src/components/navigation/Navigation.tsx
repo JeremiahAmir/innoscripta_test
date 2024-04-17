@@ -17,7 +17,7 @@ const Navigation = (args: any) => {
       <Navbar {...args}>
         <Nav className="navbar navbar-expand-lg navbar-dark fixed-top" navbar>
           <Container>
-            <NavbarBrand href="/">News Hub</NavbarBrand>
+            <NavbarBrand href="/">News Aggregator</NavbarBrand>
             <NavbarToggler onClick={toggle} />
             <Collapse id="navbarSupportedContent" isOpen={isOpen} navbar>
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0">

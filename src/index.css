@@ -21,7 +21,7 @@ body {
 .navbar li.active a {
   color: #fff !important;
 }
-aside {
+.sidebar {
   min-width: 500px;
   max-width: 500px;
   background: #30587d;
@@ -38,17 +38,17 @@ aside {
   padding: 25px 30px;
 }
 
-aside .h6 {
+.sidebar .h6 {
   color: #fff;
 }
-aside.active {
+.sidebar.active {
   right: 0;
 }
-aside.active .custom-menu {
+.sidebar.active .custom-menu {
   margin-right: -50px;
 }
 
-aside .custom-menu {
+.sidebar .custom-menu {
   display: inline-block;
   position: absolute;
   top: 0;
@@ -58,29 +58,29 @@ aside .custom-menu {
   -o-transition: 0.3s;
   transition: 0.3s;
 }
-aside .custom-menu button:focus,
-aside .custom-menu button:hover {
+.sidebar .custom-menu button:focus,
+.sidebar .custom-menu button:hover {
   box-shadow: none !important;
   background: #30587d !important;
 }
 @media (prefers-reduced-motion: reduce) {
-  aside .custom-menu {
+  .sidebar .custom-menu {
     -webkit-transition: none;
     -o-transition: none;
     transition: none;
   }
 }
-aside .custom-menu .btn {
+.sidebar .custom-menu .btn {
   width: 60px;
   height: 60px;
   border-radius: 10px 0 0 10px;
   font-size: 28px;
 }
-aside .custom-menu .btn.btn-primary {
+.sidebar .custom-menu .btn.btn-primary {
   background: #30587d;
   border-color: #30587d;
 }
-aside .custom-menu .btn.btn-primary .fa {
+.sidebar .custom-menu .btn.btn-primary .fa {
   animation: rotateCog 4s linear infinite;
 }
 @keyframes rotateCog {
@@ -391,6 +391,9 @@ input:focus {
 .banner-post-card:hover .posted-date {
   color: #fff;
 }
+.banner-post-card img {
+  object-fit: cover;
+}
 .card-body {
   background: #1c2125;
   color: #fff;
@@ -438,27 +441,27 @@ input:focus {
 .trending-news {
   padding: 70px 0;
 }
-aside .cstm-btn {
+.sidebar .cstm-btn {
   background: #223e58 !important;
   padding: 10px 30px !important;
   font-size: 16px;
 }
 @media (max-width: 574px) {
-  aside {
+  .sidebar {
     min-width: 410px;
     max-width: 410px;
     right: -410px;
   }
 }
 @media (max-width: 480px) {
-  aside {
+  .sidebar {
     min-width: 350px;
     max-width: 350px;
     right: -350px;
   }
 }
 @media (max-width: 420px) {
-  aside {
+  .sidebar {
     min-width: 250px;
     max-width: 250px;
     right: -250px;
@@ -516,4 +519,10 @@ footer p {
     min-height: 200px;
     max-height: 200px;
   }
+}
+.css-1p3m7a8-multiValue {
+  background: #223e58 !important;
+}
+.css-wsp0cs-MultiValueGeneric {
+  color: #fff !important;
 }
