@@ -4,6 +4,7 @@ import LatestPostCard from "../../components/latest/LatestPostCard";
 import { useNyNews } from "../../services/ny-news/use-ny-news";
 import { useNewsOrg } from "../../services/org-news/use-news-org";
 import { Headline } from "../../components/headline/Headline";
+import { Col, Container, Row } from "reactstrap";
 
 type NewsType = {
   title: string;
@@ -29,12 +30,12 @@ const Feeds = () => {
   return (
     <>
       <div className="banner">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-8">
+        <Container>
+          <Row>
+            <Col md={8}>
               <div className="posts-section mb-3">
-                <div className="row">
-                  <div className="col-md-12 mb-3">
+                <Row>
+                  <Col md={12} className="mb-3">
                     <FeaturedCard
                       title={news[0]?.title}
                       publishedAt={news[0]?.publishedAt}
@@ -43,11 +44,11 @@ const Feeds = () => {
                       description={news[0]?.description}
                       url={news[0]?.url}
                     />
-                  </div>
-                </div>
+                  </Col>
+                </Row>
               </div>
-            </div>
-            <div className="col-md-4 headline-hold">
+            </Col>
+            <Col md={4} className="headline-hold">
               {news && news.length
                 ? news.map((d: NewsType, index: number) => {
                     if (index > 0 && index < 10) return;
@@ -62,14 +63,14 @@ const Feeds = () => {
                     );
                   })
                 : ""}
-            </div>
-          </div>
-        </div>
+            </Col>
+          </Row>
+        </Container>
       </div>
       <div className="latest-news">
-        <div className="container">
+        <Container>
           <h2>Latest News</h2>
-          <div className="row posts-section">
+          <Row className="posts-section">
             {news && news.length
               ? news.map((d: NewsType, index: number) => {
                   if (index < 10) return;
@@ -81,12 +82,13 @@ const Feeds = () => {
                       image={d?.image}
                       author={d?.author}
                       description={d?.description}
+                      url={d?.url}
                     />
                   );
                 })
               : ""}
-          </div>
-        </div>
+          </Row>
+        </Container>
       </div>
     </>
   );

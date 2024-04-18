@@ -141,11 +141,14 @@ input:focus {
   border: 2px solid #223e58 !important;
 }
 
-.posts-section .card .card-title {
+.posts-section .card .card-title,
+.posts-section .card .card-title a {
   border-bottom: none;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   color: #fff;
+  text-decoration: none;
+  margin-bottom: 15px;
 }
 .posts-section .card img {
   width: 100%;
@@ -425,10 +428,17 @@ input:focus {
 .latest-news .card-footer {
   background: #30587d;
   color: #fff;
+  min-height: 75px;
+  display: flex;
+  align-items: center;
 }
 .latest-news .card-footer .card-footer__info {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+.latest-news .card-footer .card-footer__info small {
+  width: 70%;
 }
 .latest-news .card-footer .card-footer__info a {
   color: #fff;
@@ -501,6 +511,9 @@ footer p {
     min-height: 330px;
     max-height: 330px;
   }
+  .banner {
+    padding: 110px 0 70px;
+  }
 }
 @media (max-width: 767px) {
   .banner-area {
@@ -514,11 +527,19 @@ footer p {
     min-height: 280px;
     max-height: 280px;
   }
+  .posts-section .card .card-title,
+  .posts-section .card .card-title a {
+    font-size: 18px;
+    line-height: 1.4;
+  }
 }
 @media (max-width: 480px) {
   .shimmer-card.featured-post .media {
     min-height: 200px;
     max-height: 200px;
+  }
+  .latest-news .card-footer .card-footer__info small {
+    width: 60%;
   }
 }
 .css-1p3m7a8-multiValue {
@@ -531,4 +552,16 @@ footer p {
   max-height: 590px;
   height: 100%;
   overflow: auto;
+}
+.card-image {
+  position: relative;
+}
+.card-category {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #30587d;
+  padding: 5px 20px;
+  color: #fff;
+  font-size: 14px;
 }

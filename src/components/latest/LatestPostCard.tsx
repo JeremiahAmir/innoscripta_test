@@ -7,6 +7,7 @@ type LatestPostCardPropsType = {
   image: string | undefined;
   author: string | undefined;
   description: string | undefined;
+  url: string | undefined;
 };
 const LatestPostCard = ({
   title,
@@ -14,18 +15,20 @@ const LatestPostCard = ({
   image,
   author,
   description,
+  url,
 }: LatestPostCardPropsType) => {
   const imageUrl = image || newsBanner;
 
   return (
     <>
-      <Col md={4} className=" mb-4">
+      <Col lg={4} md={6} className=" mb-4">
         <div className="card shadow-sm h-100">
           <div className="card-image overflow-hidden">
             <div className="hover-text">
               <img src={imageUrl} className="card-img-top" alt="..." />
             </div>
             <div className="image-overlay"></div>
+            <span className="card-category">General</span>
           </div>
           <div className="card-body">
             <p className="card-text mb-1">
@@ -33,7 +36,11 @@ const LatestPostCard = ({
                 {publishedAt}
               </span>
             </p>
-            <h3 className="card-title">{title}</h3>
+            <h3 className="card-title">
+              <a href={url} target="_blank" rel="noreferrer">
+                {title}
+              </a>
+            </h3>
 
             <p className="card-text">{description}</p>
           </div>
@@ -42,7 +49,12 @@ const LatestPostCard = ({
             <div className="card-footer__info">
               <small>Posted by: {author || "unknown"}</small>
               <span className="read-more">
-                <a className="text-uppercase read-more-1" href="#anchor">
+                <a
+                  className="text-uppercase read-more-1"
+                  href={url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   Read more
                 </a>
               </span>

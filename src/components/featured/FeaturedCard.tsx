@@ -25,6 +25,7 @@ const FeaturedCard = ({
             <img src={imageUrl} className="card-img-top" alt="..." />
           </div>
           <div className="image-overlay"></div>
+          <span className="card-category">General</span>
         </div>
         <div className="card-body">
           <p className="card-text mb-1">
