@@ -1,21 +1,18 @@
-import {Outlet, useNavigate} from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Navigation from "../components/navigation/Navigation";
 import Preferences from "../components/preferences/Preferences";
 import Footer from "../components/footer/Footer";
-import {useEffect} from "react";
+import { RecoilRoot } from "recoil";
 
 function App() {
-    const navigate = useNavigate()
-    useEffect(() => {
-        navigate('/feeds')
-    }, []);
-
     return (
         <>
-            <Navigation />
-            <Outlet />
-            <Preferences />
-            <Footer />
+            <RecoilRoot>
+                <Navigation />
+                <Outlet />
+                <Preferences />
+                <Footer />
+            </RecoilRoot>
         </>
     );
 }
