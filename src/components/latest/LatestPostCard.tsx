@@ -1,69 +1,80 @@
-import { Col } from "reactstrap";
+import {
+    Card,
+    CardBody,
+    CardFooter,
+    CardText,
+    CardTitle,
+    Col,
+} from "reactstrap";
 import newsBanner from "../../assets/images/news.jpg";
 
 type LatestPostCardPropsType = {
-  title: string;
-  publishedAt: string;
-  image: string | undefined;
-  author: string | undefined;
-  description: string | undefined;
-  url: string | undefined;
+    title: string;
+    publishedAt: string;
+    image: string | undefined;
+    author: string | undefined;
+    description: string | undefined;
+    url: string | undefined;
 };
 const LatestPostCard = ({
-  title,
-  publishedAt,
-  image,
-  author,
-  description,
-  url,
+    title,
+    publishedAt,
+    image,
+    author,
+    description,
+    url,
 }: LatestPostCardPropsType) => {
-  const imageUrl = image || newsBanner;
+    const imageUrl = image || newsBanner;
 
-  return (
-    <>
-      <Col lg={4} md={6} className=" mb-4">
-        <div className="card shadow-sm h-100">
-          <div className="card-image overflow-hidden">
-            <div className="hover-text">
-              <img src={imageUrl} className="card-img-top" alt="..." />
-            </div>
-            <div className="image-overlay"></div>
-            <span className="card-category">General</span>
-          </div>
-          <div className="card-body">
-            <p className="card-text mb-1">
-              <span className="badge rounded-pill bg-secondary cstm-badge mb-2">
-                {publishedAt}
-              </span>
-            </p>
-            <h3 className="card-title">
-              <a href={url} target="_blank" rel="noreferrer">
-                {title}
-              </a>
-            </h3>
+    return (
+        <>
+            <Col lg={4} md={6} className=" mb-4">
+                <Card className="shadow-sm h-100">
+                    <div className="card-image overflow-hidden">
+                        <div className="hover-text">
+                            <img
+                                src={imageUrl}
+                                className="card-img-top"
+                                alt={title}
+                            />
+                        </div>
+                        <div className="image-overlay"></div>
+                        <span className="card-category">General</span>
+                    </div>
+                    <CardBody>
+                        <CardText className="mb-1">
+                            <span className="badge rounded-pill bg-secondary cstm-badge mb-2">
+                                {publishedAt}
+                            </span>
+                        </CardText>
 
-            <p className="card-text">{description}</p>
-          </div>
+                        <CardTitle tag="h5">
+                            <a href={url} target="_blank" rel="noreferrer">
+                                {title}
+                            </a>
+                        </CardTitle>
+                        <CardText>{description}</CardText>
+                    </CardBody>
 
-          <div className="card-footer py-3">
-            <div className="card-footer__info">
-              <small>Posted by: {author || "unknown"}</small>
-              <span className="read-more">
-                <a
-                  className="text-uppercase read-more-1"
-                  href={url}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Read more
-                </a>
-              </span>
-            </div>
-          </div>
-        </div>
-      </Col>
-    </>
-  );
+                    <CardFooter className="py-3">
+                        <div className="card-footer__info">
+                            <small>Posted by: {author || "unknown"}</small>
+                            <span className="read-more">
+                                <a
+                                    className="text-uppercase read-more-1"
+                                    href={url}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    Read more
+                                </a>
+                            </span>
+                        </div>
+                    </CardFooter>
+                </Card>
+            </Col>
+        </>
+    );
 };
 
 export default LatestPostCard;

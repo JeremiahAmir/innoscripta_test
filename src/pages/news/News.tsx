@@ -1,4 +1,4 @@
-import { Container } from "reactstrap";
+import { Button, Col, Container } from "reactstrap";
 import Filters from "../../components/filters/Filters";
 import Card from "../../components/news/Card";
 import CardShimmer from "../../components/news/CardShimmer";
@@ -71,18 +71,18 @@ const News = () => {
                         ""
                     )}
                     <br />
-                    <div className="col-lg-2 col-md-3 col-4 mt-3 mx-auto">
+                    <Col lg={2} md={3} className="col-4 mt-3 mx-auto">
                         {news.length && totalRecord > news.length ? (
-                            <button
+                            <Button
                                 className="btn btn-primary cstm-btn w-100"
                                 onClick={handleLoadMore}
                             >
                                 Load More
-                            </button>
+                            </Button>
                         ) : (
                             <h2>No News available</h2>
                         )}
-                    </div>
+                    </Col>
                 </Container>
             </div>
         </>

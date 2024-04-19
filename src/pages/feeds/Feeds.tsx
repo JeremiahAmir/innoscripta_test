@@ -11,7 +11,6 @@ import { useRecoilValue } from "recoil";
 import FeaturedShimmer from "../../components/featured/FeaturedShimmer";
 import HeadlineShimmer from "../../components/headline/HeadlineShimmer";
 import LatestPostCardShimmer from "../../components/latest/LatestPostCardShimmer";
-// import { useRecoilStateLoadable } from "recoil";
 
 type NewsType = {
     title: string;
