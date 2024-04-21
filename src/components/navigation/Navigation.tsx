@@ -1,14 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  Container,
-} from "reactstrap";
+import { Collapse, Container, Nav, NavItem, Navbar, NavbarToggler } from "reactstrap";
 const Navigation = (args: any) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
@@ -17,18 +9,16 @@ const Navigation = (args: any) => {
       <Navbar {...args}>
         <Nav className="navbar navbar-expand-lg navbar-dark fixed-top" navbar>
           <Container>
-            <NavbarBrand href="/">News Aggregator</NavbarBrand>
+            <NavLink to="/" className="navbar-brand">
+              News Aggregator
+            </NavLink>
             <NavbarToggler onClick={toggle} />
             <Collapse id="navbarSupportedContent" isOpen={isOpen} navbar>
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                 <NavItem>
-                  <NavLink className="nav-link" aria-current="page" to="/feeds">
-                    Personalized Feed
-                  </NavLink>
-                </NavItem>
-                <NavItem>
                   <NavLink className="nav-link" to="/news">
-                    Search News
+                    <i className="fa fa-search me-2" aria-hidden="true"></i>
+                    <span>Search News</span>
                   </NavLink>
                 </NavItem>
               </ul>
