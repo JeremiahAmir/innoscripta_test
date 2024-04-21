@@ -7,15 +7,9 @@ type FeatureCardPropsType = {
   author: string | undefined;
   description: string | undefined;
   url: string | undefined;
+  source?: { name: string };
 };
-const FeaturedCard = ({
-  title,
-  publishedAt,
-  image,
-  author,
-  description,
-  url,
-}: FeatureCardPropsType) => {
+const FeaturedCard = ({ title, publishedAt, image, author, source, url }: FeatureCardPropsType) => {
   const imageUrl = image || newsBanner;
   return (
     <>
@@ -25,13 +19,11 @@ const FeaturedCard = ({
             <img src={imageUrl} className="card-img-top" alt="..." />
           </div>
           <div className="image-overlay"></div>
-          <span className="card-category">General</span>
+          <span className="card-category">{source?.name ?? "General"}</span>
         </div>
         <div className="card-body">
           <p className="card-text mb-1">
-            <span className="badge bg-secondary cstm-badge mb-2">
-              {publishedAt}
-            </span>
+            <span className="badge bg-secondary cstm-badge mb-2">{publishedAt}</span>
           </p>
           <p className="card-text">Posted by: {author || "Unknown"}</p>
           <h3 className="card-title">
@@ -39,7 +31,6 @@ const FeaturedCard = ({
               {title}
             </a>
           </h3>
-          {/* <p>{description}</p> */}
         </div>
       </div>
     </>
