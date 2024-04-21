@@ -1,24 +1,25 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import reportWebVitals from "./reportWebVitals";
+import { TourProvider } from "@reactour/tour";
 import "bootstrap/dist/css/bootstrap.min.css";
+import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
-import { Router } from './router/router';
-import "./index.css";
 import "react-toastify/dist/ReactToastify.css";
+import "./index.css";
+import { Router } from "./router/router";
 
+const steps = [
+  {
+    selector: "#sidebarCollapse",
+    content: "You can update your feed preferences here.",
+  },
+];
 
-
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
-);
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
-  <React.StrictMode>
+  <TourProvider
+    steps={steps}
+    defaultOpen={!localStorage.getItem("tour")}
+    afterOpen={() => localStorage.setItem("tour", "true")}
+  >
     <RouterProvider router={Router} />
-  </React.StrictMode>
+  </TourProvider>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
