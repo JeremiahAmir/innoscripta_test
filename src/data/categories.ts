@@ -2,31 +2,31 @@ import { CategoryType } from "../types/CategoryType";
 
 export const categories: Array<CategoryType> = [
   {
-    value: "Business",
-    label: "business",
+    value: "business",
+    label: "Business",
   },
   {
-    value: "Entertainment",
-    label: "entertainment",
+    value: "entertainment",
+    label: "Entertainment",
   },
   {
-    value: "general",
-    label: "General",
+    value: "environment",
+    label: "Environment",
   },
   {
-    value: "Health",
-    label: "health",
+    value: "health",
+    label: "Health",
   },
   {
-    value: "Science",
-    label: "science",
+    value: "science",
+    label: "Science",
   },
   {
-    value: "Sports",
-    label: "sports",
+    value: "sports",
+    label: "Sports",
   },
   {
-    value: "Technology",
-    label: "technology",
+    value: "technology",
+    label: "Technology",
   },
 ];

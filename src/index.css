@@ -177,8 +177,8 @@ input:focus {
     color: #fff;
 }
 /* .card-horitonzal img {
-    min-height: auto !important;
-    max-height: max-content !important;
+min-height: auto !important;
+max-height: max-content !important;
 } */
 .mobile-menu {
     display: none;
@@ -568,5 +568,15 @@ footer p {
     font-size: 14px;
 }
 /* .css-13cymwt-control {
-    padding: 4px 15px;
+padding: 4px 15px;
 } */
+.Toastify__toast-body svg {
+    fill: #30587d;
+}
+.Toastify__progress-bar--success {
+    background: #30587d !important;
+}
+.not-available {
+    font-size: 20px;
+    color: #fff;
+}

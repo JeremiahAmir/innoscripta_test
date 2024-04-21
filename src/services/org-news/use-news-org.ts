@@ -2,7 +2,7 @@ import { useAxios } from "../../hooks/use-axios";
 import { SourceType, SourceAPIResponseType } from "../../types/SourceType";
 import { getPreference } from "../preferences/preferences";
 import { NewsOrgAPIResponseType, NewsType } from "../../types/NewsTypes";
-import { Preference } from "../../types/Preference";
+import { PreferenceType } from "../../types/PreferenceType";
 
 export const useNewsOrg = () => {
     const apiKey = process.env.REACT_APP_NEWS_API_KEY;

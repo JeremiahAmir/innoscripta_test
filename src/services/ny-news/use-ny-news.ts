@@ -1,7 +1,7 @@
 import { useAxios } from "../../hooks/use-axios";
 import { getPreference } from "../preferences/preferences";
 import { NewsType, NYTimesAPIResponseType } from "../../types/NewsTypes";
-import { Preference } from "../../types/Preference";
+import { PreferenceType } from "../../types/PreferenceType";
 import { loader } from "../../store/loader/loader";
 import { useSetRecoilState } from "recoil";
 
@@ -13,9 +13,9 @@ export const useNyNews = () => {
     const setLoader = useSetRecoilState(loader);
 
     const getNews = async (): Promise<Array<NewsType>> => {
-        const categories: [] | Preference[] = getPreference("categories");
+        const categories: [] | PreferenceType[] = getPreference("categories");
         const queryParam = `fq=news_desk:(${categories?.map(
-            (cat: Preference) => `"${cat.value}"`
+            (cat: PreferenceType) => `"${cat.value}"`
         )})`;
 
         try {

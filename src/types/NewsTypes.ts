@@ -34,6 +34,37 @@ export type NewsOrgAPIResponseType = {
   url?: string;
   urlToImage?: string;
 };
+export type NewsAIArticleResponseType = {
+  authors: {isAgency: false, name: string, type: string, uri: string}[],
+  body: string,
+  dataType: string,
+  date: string,
+  dateTime: string,
+  dateTimePub: string,
+  eventUri: string|null,
+  image: string|null,
+  isDuplicate: boolean,
+  lang: string,
+  relevance: number,
+  sentiment: number,
+  sim: boolean,
+  source: {uri: string, dateaType: string, title: string},
+  time: string,
+  title: string,
+  uri: string,
+  url: string,
+  wgt: number
+}
+
+export type NewsAIAPIResponseType = {
+  articles: {
+    results: NewsAIArticleResponseType[],
+    totalResults: number,
+    page: number,
+    count: number,
+    pages: number
+  }
+}
 
 export type NewsType = {
   title: string;

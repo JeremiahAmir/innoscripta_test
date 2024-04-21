@@ -35,11 +35,17 @@ const Card = ({
                                     Posted by: {author || "Unknown"}
                                 </small>
                             </CardText>
-                            <CardTitle tag="h5">{title}</CardTitle>
+                            <CardTitle tag="h5">
+                                <a href={url} target="_blank" rel="noreferrer">
+                                    {title}
+                                </a>
+                            </CardTitle>
                             <CardText>{description}</CardText>
                             <div className="read-more-btn">
                                 <a
-                                    href="#anchor"
+                                    href={url}
+                                    target="_blank"
+                                    rel="noreferrer"
                                     className="btn btn-primary cstm-btn"
                                 >
                                     Read More
